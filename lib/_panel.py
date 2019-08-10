@@ -45,9 +45,9 @@ class VIEW3D_PT_tools_anime_hair_supporter(bpy.types.Panel):
             column = box.column(align=True)
             row = column.row(align=True)
             row.operator('object.ahs_maincurve_select', icon='RESTRICT_SELECT_OFF')
-            # FIXME: This errors
-            row.operator('object.ahs_maincurve_hide', text="Show", icon='VISIBLE_IPO_ON').is_hide = False
-            row.operator('object.ahs_maincurve_hide', text="Hide", icon='VISIBLE_IPO_OFF').is_hide = True
+            # Note: Removed broken icons
+            row.operator('object.ahs_maincurve_hide', text="Show", icon='').is_hide = False
+            row.operator('object.ahs_maincurve_hide', text="Hide", icon='').is_hide = True
 
             # 解像度
             row = column.row(align=True)
