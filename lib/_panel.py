@@ -25,7 +25,7 @@ class VIEW3D_PT_tools_anime_hair_supporter(bpy.types.Panel):
         # メインカーブ
         box = self.layout.box()
         row = box.row(align=True)
-        row.prop(props, 'maincurve_expand', text="メインカーブ", icon='MOD_CURVE', emboss=False)
+        row.prop(props, 'maincurve_expand', text="Hair Curve", icon='MOD_CURVE', emboss=False)
         row.operator('object.ahs_maincurve_activate', text="", icon='ZOOM_SELECTED')
         row.label(text="", icon='BLANK1')
 
