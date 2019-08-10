@@ -3,8 +3,8 @@ import bpy
 
 class ahs_maincurve_volume_down(bpy.types.Operator):
     bl_idname = 'object.ahs_maincurve_volume_down'
-    bl_label = "Reduce Volume"
-    bl_description = "Reduce Taper/Bevel of the Curve"
+    bl_label = "Remove Taper/Bevel"
+    bl_description = "Remove Taper/Bevel from selected Curve"
     bl_options = {'REGISTER', 'UNDO'}
 
     @classmethod

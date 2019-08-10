@@ -7,8 +7,8 @@ from . import _common
 
 class ahs_maincurve_volume_up(bpy.types.Operator):
     bl_idname = 'object.ahs_maincurve_volume_up'
-    bl_label = "Increase Volume"
-    bl_description = "Increase Taper/Bevel of the Curve"
+    bl_label = "Add Taper/Bevel"
+    bl_description = "Add Taper/Bevel to selected Curve"
     bl_options = {'REGISTER', 'UNDO'}
 
     taper_type = bpy.props.EnumProperty(items=_common.get_taper_enum_items(), name="Taper", default='Tapered')

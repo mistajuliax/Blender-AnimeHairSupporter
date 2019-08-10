@@ -6,7 +6,7 @@ import mathutils
 class ahs_maincurve_gradation_tilt(bpy.types.Operator):
     bl_idname = 'object.ahs_maincurve_gradation_tilt'
     bl_label = "Twist and Twirl"
-    bl_description = "Twist and Twirl the Curve"
+    bl_description = "Twist and Twirl Selected Taper/Bevel Curve"
     bl_options = {'REGISTER', 'UNDO'}
 
     is_tilt = bpy.props.BoolProperty(name="Inclination", default=True)

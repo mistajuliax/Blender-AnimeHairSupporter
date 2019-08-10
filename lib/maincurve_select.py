@@ -4,8 +4,8 @@ from . import _common
 
 class ahs_maincurve_select(bpy.types.Operator):
     bl_idname = 'object.ahs_maincurve_select'
-    bl_label = "Select"
-    bl_description = "Select all hair Curves"
+    bl_label = "Select Hair"
+    bl_description = "Select all hair Curves excluding Taper/Bevel Curves"
     bl_options = {'REGISTER', 'UNDO'}
 
     @classmethod
