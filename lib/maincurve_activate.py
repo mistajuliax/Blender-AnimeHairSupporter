@@ -5,8 +5,8 @@ from . import _common
 
 class ahs_maincurve_activate(bpy.types.Operator):
     bl_idname = 'object.ahs_maincurve_activate'
-    bl_label = "メインカーブをアクティブ化"
-    bl_description = "参照元であるメインカーブへアクティブを移す"
+    bl_label = "Select hair Curve"
+    bl_description = "Select the strands hair Curve"
     bl_options = {'REGISTER', 'UNDO'}
 
     @classmethod

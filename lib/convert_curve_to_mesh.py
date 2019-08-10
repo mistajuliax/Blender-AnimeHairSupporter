@@ -6,13 +6,13 @@ from . import _common
 
 class ahs_convert_curve_to_mesh(bpy.types.Operator):
     bl_idname = 'object.ahs_convert_curve_to_mesh'
-    bl_label = "カーブ > メッシュ"
-    bl_description = "選択中の肉付けしたカーブをメッシュに変換"
+    bl_label = "Curve > Mesh"
+    bl_description = "Convert Curve to Mesh"
     bl_options = {'REGISTER', 'UNDO'}
 
-    is_join = bpy.props.BoolProperty(name="オブジェクトを統合", default=True)
-    is_remove_doubles = bpy.props.BoolProperty(name="重複頂点を削除", default=True)
-    is_uv_pack_islands = bpy.props.BoolProperty(name="UVの島を梱包", default=True)
+    is_join = bpy.props.BoolProperty(name="Integrate objects", default=True)
+    is_remove_doubles = bpy.props.BoolProperty(name="Remove duplicate vertices", default=True)
+    is_uv_pack_islands = bpy.props.BoolProperty(name="Pack UV Islands", default=True)
 
     @classmethod
     def poll(cls, context):

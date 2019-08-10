@@ -7,14 +7,14 @@ import bpy
 # アドオン情報
 bl_info = {
     'name': "Anime Hair Supporter",
-    'author': "saidenka",
+    'author': "saidenka > taremin > theduriel",
     'version': (1, 0, 1),
     'blender': (2, 80, 0),
-    'location': "3Dビュー > オブジェクトモード > サイドバー > ツール > アニメ髪支援パネル",
-    'description': "",
+    'location': "3D View> Object Mode> Sidebar> Tools> Anime Hair Support Panel",
+    'description': "Allows easy creation of anime like hair using Bezier and NURBS curves.",
     'warning': "",
-    'wiki_url': "https://github.com/saidenka/Blender-AnimeHairSupporter",
-    'tracker_url': "https://github.com/saidenka/Blender-AnimeHairSupporter",
+    'wiki_url': "https://github.com/TheDuriel/Blender-AnimeHairSupporter",
+    'tracker_url': "https://github.com/TheDuriel/Blender-AnimeHairSupporter",
     'category': "Tools"
 }
 
@@ -54,9 +54,9 @@ for name in module_names:
 
 # パネルの設定
 class AHS_Props(bpy.types.PropertyGroup):
-    maincurve_expand = bpy.props.BoolProperty(name="メインパネルを展開", default=True)
-    tapercurve_expand = bpy.props.BoolProperty(name="テーパーパネルを展開", default=True)
-    bevelcurve_expand = bpy.props.BoolProperty(name="ベベルパネルを展開", default=True)
+    maincurve_expand = bpy.props.BoolProperty(name="Expand main panel", default=True)
+    tapercurve_expand = bpy.props.BoolProperty(name="Expand tapered panel", default=True)
+    bevelcurve_expand = bpy.props.BoolProperty(name="Expand bevel panel", default=True)
 
 # モジュールからクラスの取得
 classes = [AHS_Props]

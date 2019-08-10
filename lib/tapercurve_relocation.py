@@ -6,19 +6,19 @@ from . import _common
 
 class ahs_tapercurve_relocation(bpy.types.Operator):
     bl_idname = 'object.ahs_tapercurve_relocation'
-    bl_label = "再配置"
-    bl_description = "見えているテーパー/ベベルの位置/回転を再設定"
+    bl_label = "? Reset Position"
+    bl_description = "? Reset visible taper / bevel position / rotation"
     bl_options = {'REGISTER', 'UNDO'}
 
     items = [
-        ('TAPER', "テーパー", "", 'CURVE_NCURVE', 1),
-        ('BEVEL', "ベベル", "", 'SURFACE_NCIRCLE', 2),
-        ('BOTH', "両方", "", 'ARROW_LEFTRIGHT', 3),
+        ('TAPER', "Taper", "", 'CURVE_NCURVE', 1),
+        ('BEVEL', "Bevel", "", 'SURFACE_NCIRCLE', 2),
+        ('BOTH', "Both", "", 'ARROW_LEFTRIGHT', 3),
     ]
-    mode = bpy.props.EnumProperty(items=items, name="モード", default='BOTH')
+    mode = bpy.props.EnumProperty(items=items, name="Mode", default='BOTH')
 
-    is_location = bpy.props.BoolProperty(name="位置", default=True)
-    is_rotation = bpy.props.BoolProperty(name="回転", default=True)
+    is_location = bpy.props.BoolProperty(name="Position", default=True)
+    is_rotation = bpy.props.BoolProperty(name="Rotation", default=True)
 
     @classmethod
     def poll(cls, context):

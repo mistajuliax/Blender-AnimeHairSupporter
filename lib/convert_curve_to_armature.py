@@ -5,11 +5,11 @@ from . import _common
 
 class OBJECT_OP_ahs_convert_curve_to_armature(bpy.types.Operator):
     bl_idname = 'object.ahs_convert_curve_to_armature'
-    bl_label = "カーブ > アーマチュア"
-    bl_description = "選択中のカーブにそった新規アーマチュアを作成"
+    bl_label = "Curve > Armature"
+    bl_description = "Create Armature along Curve"
     bl_options = {'REGISTER', 'UNDO'}
 
-    bone_subdivide_count = bpy.props.IntProperty(name="ボーン分割数", default=1, min=0, max=8, soft_min=0, soft_max=8)
+    bone_subdivide_count = bpy.props.IntProperty(name="Bone subdivisions", default=1, min=0, max=8, soft_min=0, soft_max=8)
 
     @classmethod
     def poll(cls, context):

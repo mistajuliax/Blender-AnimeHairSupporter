@@ -4,13 +4,13 @@ from . import _common
 
 class ahs_tapercurve_activate(bpy.types.Operator):
     bl_idname = 'object.ahs_tapercurve_activate'
-    bl_label = "テーパー/ベベルをアクティブ化"
-    bl_description = "テーパー/ベベルにアクティブを移す"
+    bl_label = "Add Taper/Bevel"
+    bl_description = "Add Taper/Bevel to Curve"
     bl_options = {'REGISTER', 'UNDO'}
 
     items = [
-        ('TAPER', "テーパー", "", 'CURVE_NCURVE', 1),
-        ('BEVEL', "ベベル", "", 'SURFACE_NCIRCLE', 2),
+        ('TAPER', "Taper", "", 'CURVE_NCURVE', 1),
+        ('BEVEL', "Bevel", "", 'SURFACE_NCIRCLE', 2),
     ]
     mode = bpy.props.EnumProperty(items=items, name="モード")
 

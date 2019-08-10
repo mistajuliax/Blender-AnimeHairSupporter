@@ -4,15 +4,15 @@ from . import _common
 
 class ahs_maincurve_set_resolution(bpy.types.Operator):
     bl_idname = 'object.ahs_maincurve_set_resolution'
-    bl_label = "解像度を変更"
-    bl_description = "選択カーブの解像度(分割数)を一括設定"
+    bl_label = "Change Resolution"
+    bl_description = "Set the number of subdivisions of the Curve"
     bl_options = {'REGISTER', 'UNDO'}
 
     value = bpy.props.IntProperty(name="値", default=12, min=-64, max=64, soft_min=-64, soft_max=64)
 
     items = [
-        ('ABSOLUTE', "絶対", "", 'PREFERENCES', 1),
-        ('RELATIVE', "相対", "", 'ZOOMIN', 2),
+        ('ABSOLUTE', "Absolute", "", 'PREFERENCES', 1),
+        ('RELATIVE', "Relative", "", 'ZOOMIN', 2),
     ]
     mode = bpy.props.EnumProperty(items=items, name="モード", default='ABSOLUTE')
 

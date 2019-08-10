@@ -10,16 +10,16 @@ def get_append_data_blend_path():
 
 def get_taper_enum_items():
     items = [
-        ('Tapered', "先細り", "", 'CURVE_DATA'),
-        ('TaperedSuper', "より先細り", "", 'MOD_CURVE'),
-        ('Sphere', "円", "", 'SPHERECURVE'),
-        ('Reversed', "先太り", "", 'PMARKER'),
-        ('ReversedSuper', "より先太り", "", 'CURVE_BEZCURVE'),
-        ('TaperedOpen', "[根本開き] 先細り", "", 'CURVE_DATA'),
-        ('TaperedSuperOpen', "[根本開き] より先細り", "", 'MOD_CURVE'),
-        ('SphereOpen', "[根本開き] 円", "", 'SPHERECURVE'),
-        ('ReversedOpen', "[根本開き] 先太り", "", 'PMARKER'),
-        ('ReversedSuperOpen', "[根本開き] より先太り", "", 'CURVE_BEZCURVE'),
+        ('Tapered', "Taper", "", 'CURVE_DATA'),
+        ('TaperedSuper', "Taper Super", "", 'MOD_CURVE'),
+        ('Sphere', "Sphere", "", 'SPHERECURVE'),
+        ('Reversed', "Reversed", "", 'PMARKER'),
+        ('ReversedSuper', "Reversed Super", "", 'CURVE_BEZCURVE'),
+        ('TaperedOpen', "Taper Open", "", 'CURVE_DATA'),
+        ('TaperedSuperOpen', "Taper Open Super", "", 'MOD_CURVE'),
+        ('SphereOpen', "Sphere Open", "", 'SPHERECURVE'),
+        ('ReversedOpen', "Reversed Open", "", 'PMARKER'),
+        ('ReversedSuperOpen', "Reversed Open Super", "", 'CURVE_BEZCURVE'),
     ]
     for i, item in enumerate(items):
         items[i] = tuple(list(item) + [i + 1])
@@ -28,22 +28,22 @@ def get_taper_enum_items():
 
 def get_bevel_enum_items():
     items = [
-        ('Sphere', "円", "", 'MESH_CIRCLE'),
-        ('2', "2本", "", 'OUTLINER_OB_META'),
-        ('3', "3本", "", 'COLLAPSEMENU'),
-        ('Triangle', "三角", "", 'EDITMODE_VEC_HLT'),
-        ('TriangleLoose', "ゆるやか三角", "", 'PLAY_REVERSE'),
-        ('Square', "四角", "", 'MESH_PLANE'),
-        ('SquareLoose', "ゆるやか四角", "", 'LATTICE_DATA'),
-        ('Diamond', "ひし形", "", 'SPACE3'),
-        ('DiamondLoose', "ゆるやかひし形", "", 'KEYTYPE_EXTREME_VEC'),
-        ('Sharp', "シャープ", "", 'LINCURVE'),
-        ('Leaf', "葉っぱ", "", 'MAN_ROT'),
-        ('V', "切り込み", "", 'FILE_TICK'),
-        ('Tilde', "波", "", 'IPO_EASE_IN_OUT'),
-        ('Step', "段差", "", 'IPO_CONSTANT'),
-        ('Corrugated', "ギザギザ", "", 'RNDCURVE'),
-        ('Cloud', "雲", "", 'IPO_ELASTIC'),
+        ('Sphere', "Sphere", "", 'MESH_CIRCLE'),
+        ('2', "2", "", 'OUTLINER_OB_META'),
+        ('3', "3", "", 'COLLAPSEMENU'),
+        ('Triangle', "Triangle", "", 'EDITMODE_VEC_HLT'),
+        ('TriangleLoose', "Triangle Loose", "", 'PLAY_REVERSE'),
+        ('Square', "Square", "", 'MESH_PLANE'),
+        ('SquareLoose', "Square Loose", "", 'LATTICE_DATA'),
+        ('Diamond', "Diamond", "", 'SPACE3'),
+        ('DiamondLoose', "Diamond Loose", "", 'KEYTYPE_EXTREME_VEC'),
+        ('Sharp', "Sharp", "", 'LINCURVE'),
+        ('Leaf', "Leav", "", 'MAN_ROT'),
+        ('V', "V", "", 'FILE_TICK'),
+        ('Tilde', "Tilde", "", 'IPO_EASE_IN_OUT'),
+        ('Step', "Step", "", 'IPO_CONSTANT'),
+        ('Corrugated', "Corrugated", "", 'RNDCURVE'),
+        ('Cloud', "Cloud", "", 'IPO_ELASTIC'),
     ]
     for i, item in enumerate(items):
         items[i] = tuple(list(item) + [i + 1])

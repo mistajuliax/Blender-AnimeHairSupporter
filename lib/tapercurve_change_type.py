@@ -5,16 +5,16 @@ from . import _common
 
 class ahs_tapercurve_change_type(bpy.types.Operator):
     bl_idname = 'object.ahs_tapercurve_change_type'
-    bl_label = "種類を変更"
-    bl_description = "選択カーブのテーパー/ベベルの形状を一覧から再設定"
+    bl_label = "Change Type"
+    bl_description = "? Reset the taper / bevel shape of the selected curve from the list"
     bl_options = {'REGISTER', 'UNDO'}
 
-    is_taper = bpy.props.BoolProperty(name="テーパーを変更")
-    taper_type = bpy.props.EnumProperty(items=_common.get_taper_enum_items(), name="テーパー", default='Tapered')
+    is_taper = bpy.props.BoolProperty(name="Change Taper")
+    taper_type = bpy.props.EnumProperty(items=_common.get_taper_enum_items(), name="Taper", default='Tapered')
 
-    is_bevel = bpy.props.BoolProperty(name="ベベルを変更")
-    bevel_type = bpy.props.EnumProperty(items=_common.get_bevel_enum_items(), name="ベベル", default='Sharp')
-    is_bevel_mirror = bpy.props.BoolProperty(name="ベベルを左右反転", default=False)
+    is_bevel = bpy.props.BoolProperty(name="Change Bevel")
+    bevel_type = bpy.props.EnumProperty(items=_common.get_bevel_enum_items(), name="Bevel", default='Sharp')
+    is_bevel_mirror = bpy.props.BoolProperty(name="Flip Bevel horizontally", default=False)
 
     @classmethod
     def poll(cls, context):

@@ -4,12 +4,12 @@ import mathutils
 
 class ahs_maincurve_extra_deform(bpy.types.Operator):
     bl_idname = 'object.ahs_maincurve_extra_deform'
-    bl_label = "余剰変形"
-    bl_description = "選択中のカーブを過剰に変形、もしくは緩やかにする"
+    bl_label = "Extra Deformation"
+    bl_description = "Add or remove extra deformation"
     bl_options = {'REGISTER', 'UNDO'}
 
-    order_u = bpy.props.IntProperty(name="次数", default=3, min=3, max=6, soft_min=3, soft_max=6)
-    extra_deform_multi = bpy.props.IntProperty(name="余剰変形率", default=50, min=-100, max=200, soft_min=-100, soft_max=200, subtype='PERCENTAGE')
+    order_u = bpy.props.IntProperty(name="Degree", default=3, min=3, max=6, soft_min=3, soft_max=6)
+    extra_deform_multi = bpy.props.IntProperty(name="Extra deformation", default=50, min=-100, max=200, soft_min=-100, soft_max=200, subtype='PERCENTAGE')
 
     @classmethod
     def poll(cls, context):

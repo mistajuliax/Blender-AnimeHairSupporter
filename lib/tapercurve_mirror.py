@@ -3,19 +3,19 @@ import bpy
 
 class ahs_tapercurve_mirror(bpy.types.Operator):
     bl_idname = 'object.ahs_tapercurve_mirror'
-    bl_label = "ミラー"
-    bl_description = "テーパー/ベベルの形状を左右/上下反転"
+    bl_label = "Mirror"
+    bl_description = "Mirror Taper/Bevel along axis"
     bl_options = {'REGISTER', 'UNDO'}
 
     items = [
-        ('TAPER', "テーパー", "", 'CURVE_NCURVE', 1),
-        ('BEVEL', "ベベル", "", 'SURFACE_NCIRCLE', 2),
-        ('BOTH', "両方", "", 'ARROW_LEFTRIGHT', 3),
+        ('TAPER', "Taper", "", 'CURVE_NCURVE', 1),
+        ('BEVEL', "Bevel", "", 'SURFACE_NCIRCLE', 2),
+        ('BOTH', "Both", "", 'ARROW_LEFTRIGHT', 3),
     ]
     mode = bpy.props.EnumProperty(items=items, name="モード", default='BOTH')
 
-    is_mirror_x = bpy.props.BoolProperty(name="左右反転")
-    is_mirror_y = bpy.props.BoolProperty(name="上下反転")
+    is_mirror_x = bpy.props.BoolProperty(name="Mirror X")
+    is_mirror_y = bpy.props.BoolProperty(name="Mirror Y")
 
     @classmethod
     def poll(cls, context):

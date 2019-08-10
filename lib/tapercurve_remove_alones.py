@@ -4,14 +4,14 @@ import re
 
 class ahs_tapercurve_remove_alones(bpy.types.Operator):
     bl_idname = 'object.ahs_tapercurve_remove_alones'
-    bl_label = "ぼっち駆除"
-    bl_description = "どのカーブにも属していないテーパー/ベベルと思われるカーブを削除"
+    bl_label = "Clean"
+    bl_description = "Remove Taper/Bevel Curves without owner"
     bl_options = {'REGISTER', 'UNDO'}
 
     items = [
-        ('TAPER', "テーパー", "", 'CURVE_NCURVE', 1),
-        ('BEVEL', "ベベル", "", 'SURFACE_NCIRCLE', 2),
-        ('BOTH', "両方", "", 'ARROW_LEFTRIGHT', 3),
+        ('TAPER', "Taper", "", 'CURVE_NCURVE', 1),
+        ('BEVEL', "Bevel", "", 'SURFACE_NCIRCLE', 2),
+        ('BOTH', "Both", "", 'ARROW_LEFTRIGHT', 3),
     ]
     mode = bpy.props.EnumProperty(items=items, name="モード", default='BOTH')
 

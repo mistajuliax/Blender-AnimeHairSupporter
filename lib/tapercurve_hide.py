@@ -4,14 +4,14 @@ from . import _common
 
 class ahs_tapercurve_hide(bpy.types.Operator):
     bl_idname = 'object.ahs_tapercurve_hide'
-    bl_label = "隠す"
-    bl_description = "テーパー/ベベルをすべて隠す/表示"
+    bl_label = "Hide"
+    bl_description = "Hide/Show All Tapers/Bevels"
     bl_options = {'REGISTER', 'UNDO'}
 
     items = [
-        ('TAPER', "テーパー", "", 'CURVE_NCURVE', 1),
-        ('BEVEL', "ベベル", "", 'SURFACE_NCIRCLE', 2),
-        ('BOTH', "両方", "", 'ARROW_LEFTRIGHT', 3),
+        ('TAPER', "Taper", "", 'CURVE_NCURVE', 1),
+        ('BEVEL', "Bevel", "", 'SURFACE_NCIRCLE', 2),
+        ('BOTH', "Both", "", 'ARROW_LEFTRIGHT', 3),
     ]
     mode = bpy.props.EnumProperty(items=items, name="モード", default='BOTH')
 

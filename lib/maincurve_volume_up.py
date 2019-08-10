@@ -7,17 +7,17 @@ from . import _common
 
 class ahs_maincurve_volume_up(bpy.types.Operator):
     bl_idname = 'object.ahs_maincurve_volume_up'
-    bl_label = "肉付け"
-    bl_description = "選択中のカーブにテーパー/ベベルを設定して実体化する"
+    bl_label = "Increase Volume"
+    bl_description = "Increase Taper/Bevel of the Curve""
     bl_options = {'REGISTER', 'UNDO'}
 
-    taper_type = bpy.props.EnumProperty(items=_common.get_taper_enum_items(), name="テーパー", default='Tapered')
+    taper_type = bpy.props.EnumProperty(items=_common.get_taper_enum_items(), name="Taper", default='Tapered')
 
-    bevel_type = bpy.props.EnumProperty(items=_common.get_bevel_enum_items(), name="ベベル", default='Sharp')
-    is_bevel_mirror = bpy.props.BoolProperty(name="ベベルを左右反転", default=False)
+    bevel_type = bpy.props.EnumProperty(items=_common.get_bevel_enum_items(), name="Bevel", default='Sharp')
+    is_bevel_mirror = bpy.props.BoolProperty(name="Flip Bevel Horizontally", default=False)
 
-    scale = bpy.props.FloatProperty(name="半径", default=0.2, min=0, max=10, soft_min=0, soft_max=10, step=0.1, precision=3)
-    scale_y_multi = bpy.props.IntProperty(name="平たさ", default=50, min=0, max=100, soft_min=0, soft_max=100, subtype='PERCENTAGE')
+    scale = bpy.props.FloatProperty(name="Radius", default=0.2, min=0, max=10, soft_min=0, soft_max=10, step=0.1, precision=3)
+    scale_y_multi = bpy.props.IntProperty(name="Flatness", default=50, min=0, max=100, soft_min=0, soft_max=100, subtype='PERCENTAGE')
 
     @classmethod
     def poll(cls, context):

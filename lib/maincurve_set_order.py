@@ -4,17 +4,17 @@ from . import _common
 
 class ahs_maincurve_set_order(bpy.types.Operator):
     bl_idname = 'object.ahs_maincurve_set_order'
-    bl_label = "次数を変更"
-    bl_description = "選択カーブの次数(ゆるやかさ)を一括設定"
+    bl_label = "Change order"
+    bl_description = "? Set the order (granuality) of selected curves all at once"
     bl_options = {'REGISTER', 'UNDO'}
 
     value = bpy.props.IntProperty(name="値", default=3, min=-6, max=6, soft_min=-6, soft_max=6)
 
     items = [
-        ('ABSOLUTE', "絶対", "", 'PREFERENCES', 1),
-        ('RELATIVE', "相対", "", 'ZOOMIN', 2),
+        ('ABSOLUTE', "Absolute", "", 'PREFERENCES', 1),
+        ('RELATIVE', "Relative", "", 'ZOOMIN', 2),
     ]
-    mode = bpy.props.EnumProperty(items=items, name="モード", default='ABSOLUTE')
+    mode = bpy.props.EnumProperty(items=items, name="Mode", default='ABSOLUTE')
 
     @classmethod
     def poll(cls, context):
