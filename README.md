@@ -1,11 +1,13 @@
-﻿Original project for Blender 2.79
+Original project for Blender 2.79:
 
 [バグ修正とBlender2.79対応版はこちら](https://github.com/dskjal/Blender-AnimeHairSupporter)  
 
-Updated project for Blender 2.8
+Updated project for Blender 2.8:
+
 [Blender2.8対応版はこちら](https://github.com/Taremin/Blender-AnimeHairSupporter)  
 
-Translated and fixed project for Blender 2.8
+Translated and fixed project for Blender 2.8:
+
 You're looking at it.
 
 
