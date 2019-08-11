@@ -66,7 +66,9 @@ class VIEW3D_PT_tools_anime_hair_supporter(bpy.types.Panel):
                 row.prop(context.active_object.data.splines.active, 'resolution_u', text="Resolution")
             else:
                 row.label(text="Resolution:")
+
             row.operator('object.ahs_maincurve_set_resolution', text="", icon='PREFERENCES')
+
             # 次数
             row = column.row(align=True)
 
@@ -84,6 +86,7 @@ class VIEW3D_PT_tools_anime_hair_supporter(bpy.types.Panel):
                 row.prop(context.active_object.data.splines.active, 'order_u', text="Order")
             else:
                 row.label(text="Order:")
+
             row.operator('object.ahs_maincurve_set_order', text="", icon='PREFERENCES')
 
         # テーパーカーブ
@@ -229,6 +232,7 @@ class VIEW3D_PT_tools_anime_hair_supporter(bpy.types.Panel):
 
         row = self.layout.row(align=True)
         row.operator('object.ahs_convert_curve_to_mesh', icon='MESH_UVSPHERE')
+
         for ob in context.selected_objects:
             if ob.type != 'CURVE':
                 continue
