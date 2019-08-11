@@ -101,7 +101,6 @@ class ahs_maincurve_volume_up(bpy.types.Operator):
 
             # 拡縮変更
             taper_curve_ob.scale = (self.scale, self.scale, self.scale)
-            # TODO: This might be why the bevel curve appears in the wrong place.
             bevel_curve_ob.scale = (self.scale, self.scale * self.scale_y_multi * 0.01, self.scale)
 
         return {'FINISHED'}
