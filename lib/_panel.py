@@ -51,10 +51,17 @@ class VIEW3D_PT_tools_anime_hair_supporter(bpy.types.Panel):
 
             # 解像度
             row = column.row(align=True)
-            try:
-                is_successed = context.active_object.data.taper_object and context.active_object.data.bevel_object and context.active_object.data.splines.active
-            except:
+
+            if context.active_object.data.taper_object and context.active_object.data.bevel_object and context.active_object.data.splines.active:
+                is_successed = True
+            else:
                 is_successed = False
+
+            # try:
+            #     is_successed = context.active_object.data.taper_object and context.active_object.data.bevel_object and context.active_object.data.splines.active
+            # except:
+            #     is_successed = False
+
             if is_successed:
                 row.prop(context.active_object.data.splines.active, 'resolution_u', text="Resolution")
             else:
@@ -62,10 +69,17 @@ class VIEW3D_PT_tools_anime_hair_supporter(bpy.types.Panel):
             row.operator('object.ahs_maincurve_set_resolution', text="", icon='PREFERENCES')
             # 次数
             row = column.row(align=True)
-            try:
-                is_successed = context.active_object.data.taper_object and context.active_object.data.bevel_object and context.active_object.data.splines.active
-            except:
+
+            if context.active_object.data.taper_object and context.active_object.data.bevel_object and context.active_object.data.splines.active:
+                is_successed = True
+            else:
                 is_successed = False
+
+            # try:
+            #     is_successed = context.active_object.data.taper_object and context.active_object.data.bevel_object and context.active_object.data.splines.active
+            # except:
+            #     is_successed = False
+
             if is_successed:
                 row.prop(context.active_object.data.splines.active, 'order_u', text="Order")
             else:
@@ -104,19 +118,38 @@ class VIEW3D_PT_tools_anime_hair_supporter(bpy.types.Panel):
 
             # 解像度
             row = column.row(align=True)
-            try:
-                row.prop(context.active_object.data.taper_object.data.splines.active, 'resolution_u', text="Resolution")
-                is_successed = True
-            except:
+
+            if context.active_object in bpy.data.objects:
+                if context.active_object.data.taper_object in bpy.data.objects:
+                    row.prop(context.active_object.data.taper_object.data.splines.active, 'resolution_u', text="Resolution")
+                    is_successed = True
+                else:
+                    is_successed = False
+            else:
                 is_successed = False
+
+            # try:
+            #     row.prop(context.active_object.data.taper_object.data.splines.active, 'resolution_u', text="Resolution")
+            #     is_successed = True
+            # except:
+            #     is_successed = False
+
             if not is_successed:
                 taper_objects = [c.taper_object for c in context.blend_data.curves if c.taper_object]
-                try:
-                    if context.active_object in taper_objects:
-                        row.prop(context.active_object.data.splines.active, 'resolution_u', text="Resolution")
-                        is_successed = True
-                except:
+
+                if context.active_objects in taper_objects:
+                    row.prop(context.active_object.data.splines.active, 'resolution_u', text="Resolution")
+                    is_successed = True
+                else:
                     is_successed = False
+
+                # try:
+                #     if context.active_object in taper_objects:
+                #         row.prop(context.active_object.data.splines.active, 'resolution_u', text="Resolution")
+                #         is_successed = True
+                # except:
+                #     is_successed = False
+
             if not is_successed:
                 row.label(text="Resolution:")
             row.operator('object.ahs_maincurve_set_resolution', text="", icon='PREFERENCES')
@@ -153,19 +186,38 @@ class VIEW3D_PT_tools_anime_hair_supporter(bpy.types.Panel):
 
             # 解像度
             row = column.row(align=True)
-            try:
-                row.prop(context.active_object.data.bevel_object.data.splines.active, 'resolution_u', text="Resolution")
-                is_successed = True
-            except:
+
+            if context.active_object in bpy.data.objects:
+                if context.active_object.data.bevel_object in bpy.data.objects:
+                    row.prop(context.active_object.data.bevel_object.data.splines.active, 'resolution_u', text="Resolution")
+                    is_successed = True
+                else:
+                    is_successed = False
+            else:
                 is_successed = False
+
+            # try:
+            #     row.prop(context.active_object.data.bevel_object.data.splines.active, 'resolution_u', text="Resolution")
+            #     is_successed = True
+            # except:
+            #     is_successed = False
+
             if not is_successed:
                 bevel_objects = [c.bevel_object for c in context.blend_data.curves if c.bevel_object]
-                try:
-                    if context.active_object in bevel_objects:
+
+                if context.active_objects in bevel_objects:
                         row.prop(context.active_object.data.splines.active, 'resolution_u', text="Resolution")
                         is_successed = True
-                except:
+                else:
                     is_successed = False
+
+                # try:
+                #     if context.active_object in bevel_objects:
+                #         row.prop(context.active_object.data.splines.active, 'resolution_u', text="Resolution")
+                #         is_successed = True
+                # except:
+                #     is_successed = False
+
             if not is_successed:
                 row.label(text="Resolution:")
             row.operator('object.ahs_maincurve_set_resolution', text="", icon='PREFERENCES')
