@@ -14,7 +14,7 @@ Sceenshot:
 
 ![alt text](https://github.com/TheDuriel/Blender-AnimeHairSupporter/blob/master/SS1.jpg)
 
-The plugin panel is on the left. It allows the automatic adding of taper and bevel curves to Bezier/NURBS curves. In the bottom left you can see the various Taper/Bevel presets.
+The plugin panel is on the right 'HairTools'. It allows the automatic adding of taper and bevel curves to Bezier/NURBS curves. In the bottom left you can see the various Taper/Bevel presets.
 
 If you use NURBS curves the Taper/Bevel curves will automatically me aligned with the end of the hair hurve.
 
