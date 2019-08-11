@@ -207,11 +207,11 @@ class VIEW3D_PT_tools_anime_hair_supporter(bpy.types.Panel):
             if not is_successed:
                 bevel_objects = [c.bevel_object for c in context.blend_data.curves if c.bevel_object]
 
-                if context.active_objects in bevel_objects:
-                        row.prop(context.active_object.data.splines.active, 'resolution_u', text="Resolution")
-                        is_successed = True
-                else:
-                    is_successed = False
+                # if context.active_objects in bevel_objects:
+                #         row.prop(context.active_object.data.splines.active, 'resolution_u', text="Resolution")
+                #         is_successed = True
+                # else:
+                #     is_successed = False
 
                 try:
                     if context.active_object in bevel_objects:
