@@ -16,7 +16,7 @@ Sceenshot:
 
 The plugin panel is on the right 'HairTools'. It allows the automatic adding of taper and bevel curves to Bezier/NURBS curves. In the bottom left you can see the various Taper/Bevel presets.
 
-If you use NURBS curves the Taper/Bevel curves will automatically me aligned with the end of the hair hurve.
+If you use NURBS curves the Taper/Bevel curves will automatically be aligned with the end of the hair hurve.
 
 Original readme: 
 
