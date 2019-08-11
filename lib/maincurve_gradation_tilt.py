@@ -27,7 +27,7 @@ class ahs_maincurve_gradation_tilt(bpy.types.Operator):
         ('ABSOLUTE', "Absolute", "", 'PREFERENCES', 1),
         ('RELATIVE', "Relative", "", 'ZOOMIN', 2),
     ]
-    mode = bpy.props.EnumProperty(items=items, name="モード", default='ABSOLUTE')
+    mode = bpy.props.EnumProperty(items=items, name="Mode", default='ABSOLUTE')
 
     @classmethod
     def poll(cls, context):

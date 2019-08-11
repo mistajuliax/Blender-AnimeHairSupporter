@@ -8,13 +8,13 @@ class ahs_maincurve_set_resolution(bpy.types.Operator):
     bl_description = "Set the number of subdivisions of the Curve"
     bl_options = {'REGISTER', 'UNDO'}
 
-    value = bpy.props.IntProperty(name="値", default=12, min=-64, max=64, soft_min=-64, soft_max=64)
+    value = bpy.props.IntProperty(name="value", default=12, min=-64, max=64, soft_min=-64, soft_max=64)
 
     items = [
         ('ABSOLUTE', "Absolute", "", 'PREFERENCES', 1),
         ('RELATIVE', "Relative", "", 'ZOOMIN', 2),
     ]
-    mode = bpy.props.EnumProperty(items=items, name="モード", default='ABSOLUTE')
+    mode = bpy.props.EnumProperty(items=items, name="Mode", default='ABSOLUTE')
 
     @classmethod
     def poll(cls, context):

@@ -13,9 +13,9 @@ class ahs_tapercurve_hide(bpy.types.Operator):
         ('BEVEL', "Bevel", "", 'SURFACE_NCIRCLE', 2),
         ('BOTH', "Both", "", 'ARROW_LEFTRIGHT', 3),
     ]
-    mode = bpy.props.EnumProperty(items=items, name="モード", default='BOTH')
+    mode = bpy.props.EnumProperty(items=items, name="Both", default='BOTH')
 
-    is_hide = bpy.props.BoolProperty(name="隠す")
+    is_hide = bpy.props.BoolProperty(name="Hide")
 
     @classmethod
     def poll(cls, context):

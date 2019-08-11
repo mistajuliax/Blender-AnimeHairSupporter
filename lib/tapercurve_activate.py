@@ -12,7 +12,7 @@ class ahs_tapercurve_activate(bpy.types.Operator):
         ('TAPER', "Taper", "", 'CURVE_NCURVE', 1),
         ('BEVEL', "Bevel", "", 'SURFACE_NCIRCLE', 2),
     ]
-    mode = bpy.props.EnumProperty(items=items, name="モード")
+    mode = bpy.props.EnumProperty(items=items, name="Mode")
 
     @classmethod
     def poll(cls, context):

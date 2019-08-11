@@ -12,7 +12,7 @@ class ahs_tapercurve_mirror(bpy.types.Operator):
         ('BEVEL', "Bevel", "", 'SURFACE_NCIRCLE', 2),
         ('BOTH', "Both", "", 'ARROW_LEFTRIGHT', 3),
     ]
-    mode = bpy.props.EnumProperty(items=items, name="モード", default='BOTH')
+    mode = bpy.props.EnumProperty(items=items, name="Mode", default='BOTH')
 
     is_mirror_x = bpy.props.BoolProperty(name="Mirror X")
     is_mirror_y = bpy.props.BoolProperty(name="Mirror Y")
