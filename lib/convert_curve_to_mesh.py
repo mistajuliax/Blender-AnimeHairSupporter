@@ -1,6 +1,7 @@
-import bpy
 import bmesh
+import bpy
 import mathutils
+
 from . import _common
 
 

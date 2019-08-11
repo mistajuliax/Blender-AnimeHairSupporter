@@ -1,5 +1,6 @@
-import bpy
 import re
+
+import bpy
 
 
 class ahs_tapercurve_remove_alones(bpy.types.Operator):

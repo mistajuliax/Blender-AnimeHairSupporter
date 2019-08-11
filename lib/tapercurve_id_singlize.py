@@ -1,6 +1,5 @@
 import bpy
-import mathutils
-import math
+
 from . import _common
 
 

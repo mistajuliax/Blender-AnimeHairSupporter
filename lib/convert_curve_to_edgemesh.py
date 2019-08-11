@@ -1,6 +1,8 @@
+import re
+
 import bpy
 import mathutils
-import re
+
 from . import _common
 
 

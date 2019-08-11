@@ -1,5 +1,5 @@
 import bpy
-import os
+
 from . import _common
 
 
