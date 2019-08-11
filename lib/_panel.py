@@ -5,7 +5,7 @@ from . import _common
 class VIEW3D_PT_tools_anime_hair_supporter(bpy.types.Panel):
     bl_space_type = 'VIEW_3D'
     bl_region_type = _common.region()
-    bl_category = 'Tools'
+    bl_category = 'HairTools'
     bl_context = 'objectmode'
     bl_label = "AnimeHairSupport"
     bl_options = {'DEFAULT_CLOSED'}
