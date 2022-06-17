@@ -44,6 +44,6 @@ class ahs_maincurve_set_resolution(bpy.types.Operator):
             for spline in ob.data.splines:
                 if self.mode == 'ABSOLUTE':
                     spline.resolution_u = self.value
-                if self.mode == 'RELATIVE':
+                elif self.mode == 'RELATIVE':
                     spline.resolution_u += self.value
         return {'FINISHED'}

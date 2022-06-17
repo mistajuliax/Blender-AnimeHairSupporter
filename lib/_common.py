@@ -53,15 +53,14 @@ def get_bevel_enum_items():
 
 def relocation_taper_and_bevel(main_ob, sub_ob, is_taper):
     # 位置変更
-    if len(main_ob.data.splines):
-        if len(main_ob.data.splines[0].points):
-            end_co = mul(main_ob.matrix_world, mathutils.Vector(main_ob.data.splines[0].points[-1].co[:3]))
-            sub_ob.location = end_co.copy()
+    if len(main_ob.data.splines) and len(main_ob.data.splines[0].points):
+        end_co = mul(main_ob.matrix_world, mathutils.Vector(main_ob.data.splines[0].points[-1].co[:3]))
+        sub_ob.location = end_co.copy()
 
     # 回転変更
     if len(main_ob.data.splines):
         spline = main_ob.data.splines[0]
-        if 2 <= len(spline.points):
+        if len(spline.points) >= 2:
             # 最後の辺をトラック
             sub_ob.rotation_mode = 'QUATERNION'
             last_direction = mul(main_ob.matrix_world, mathutils.Vector(spline.points[-2].co[:3])) - mul(main_ob.matrix_world, mathutils.Vector(spline.points[-1].co[:3]))
@@ -107,10 +106,7 @@ def get_active_object():
 
 
 def is_hide(obj):
-    if IS_LEGACY:
-        return obj.hide
-    else:
-        return obj.hide_viewport
+    return obj.hide if IS_LEGACY else obj.hide_viewport
 
 
 def set_hide(obj, value):
@@ -128,10 +124,7 @@ def link_to_scene(obj):
 
 
 def region():
-    if IS_LEGACY:
-        return 'TOOLS'
-    else:
-        return 'UI'
+    return 'TOOLS' if IS_LEGACY else 'UI'
 
 
 def box_split(box, factor, align):
@@ -142,7 +135,4 @@ def box_split(box, factor, align):
 
 
 def mul(a, b):
-    if IS_LEGACY:
-        return a * b
-    else:
-        return a @ b
+    return a * b if IS_LEGACY else a @ b

@@ -38,8 +38,7 @@ class ahs_convert_edgemesh_to_curve(bpy.types.Operator):
 
             separated_verts = []
             already_edges = []
-            for i in range(len(bm.verts) * 2):
-
+            for _ in range(len(bm.verts) * 2):
                 # まだ拾ってない開始頂点/辺を検索
                 current_vert, current_edge = None, None
                 for vert in bm.verts:
@@ -94,7 +93,7 @@ class ahs_convert_edgemesh_to_curve(bpy.types.Operator):
                     local_verts.reverse(), local_points.reverse()
 
                 # カーブとオブジェクトを新規作成してリンク
-                name = ob.name + ":HairCurve"
+                name = f"{ob.name}:HairCurve"
                 curve = context.blend_data.curves.new(name, 'CURVE')
                 curve_ob = context.blend_data.objects.new(name, curve)
                 curve_ob.matrix_world = mathutils.Matrix.Translation(local_points[0])

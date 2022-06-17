@@ -46,7 +46,6 @@ class ahs_tapercurve_activate(bpy.types.Operator):
                 o.select = False
             _common.select(target_ob, True)
             _common.set_hide(target_ob, False)
-            _common.set_active_object(target_ob)
         else:
             target_ob = None
             for o in context.blend_data.objects:
@@ -64,6 +63,5 @@ class ahs_tapercurve_activate(bpy.types.Operator):
             for o in context.blend_data.objects:
                 _common.select(o, False)
             _common.select(target_ob, True)
-            _common.set_active_object(target_ob)
-
+        _common.set_active_object(target_ob)
         return {'FINISHED'}

@@ -100,7 +100,7 @@ class ahs_maincurve_gradation_tilt(bpy.types.Operator):
 
                 current_length = 0.0
                 for index, point in enumerate(spline.points):
-                    if 1 <= index:
+                    if index >= 1:
                         diff_co = mathutils.Vector(point.co[:3]) - mathutils.Vector(spline.points[index - 1].co[:3])
                         current_length += diff_co.length
 

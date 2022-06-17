@@ -12,9 +12,7 @@ class ahs_tapercurve_id_singlize(bpy.types.Operator):
     @classmethod
     def poll(cls, context):
         try:
-            taper_and_bevel_counts = {}
-            for ob in context.blend_data.objects:
-                taper_and_bevel_counts[ob] = 0
+            taper_and_bevel_counts = {ob: 0 for ob in context.blend_data.objects}
             for ob in context.blend_data.objects:
                 if ob.type != 'CURVE':
                     continue
@@ -25,16 +23,19 @@ class ahs_tapercurve_id_singlize(bpy.types.Operator):
                     taper_and_bevel_counts[ob.data.bevel_object] += 1
 
             for ob in context.selected_objects:
-                if 2 <= taper_and_bevel_counts[ob]:
+                if taper_and_bevel_counts[ob] >= 2:
                     return True
-                if ob.data.taper_object:
-                    if 2 <= taper_and_bevel_counts[ob.data.taper_object]:
-                        return True
-                if ob.data.bevel_object:
-                    if 2 <= taper_and_bevel_counts[ob.data.bevel_object]:
-                        return True
-            else:
-                return False
+                if (
+                    ob.data.taper_object
+                    and taper_and_bevel_counts[ob.data.taper_object] >= 2
+                ):
+                    return True
+                if (
+                    ob.data.bevel_object
+                    and taper_and_bevel_counts[ob.data.bevel_object] >= 2
+                ):
+                    return True
+            return False
         except:
             return False
         return True
@@ -56,13 +57,13 @@ class ahs_tapercurve_id_singlize(bpy.types.Operator):
                 continue
 
             if ob.data.taper_object:
-                for key in targets.keys():
+                for key in targets:
                     if ob.data.taper_object == key:
                         targets[key].append(ob)
                         is_tapers[key] = True
 
             if ob.data.bevel_object:
-                for key in targets.keys():
+                for key in targets:
                     if ob.data.bevel_object == key:
                         targets[key].append(ob)
                         is_tapers[key] = False

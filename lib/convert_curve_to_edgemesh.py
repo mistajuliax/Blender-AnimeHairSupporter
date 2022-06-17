@@ -27,9 +27,8 @@ class ahs_convert_curve_to_edgemesh(bpy.types.Operator):
 
     def execute(self, context):
         name = _common.get_active_object().name
-        re_result = re.search(r'^(.+):HairCurve', name)
-        if re_result:
-            name = re_result.group(1)
+        if re_result := re.search(r'^(.+):HairCurve', name):
+            name = re_result[1]
 
         new_verts, new_edges = [], []
         for ob in context.selected_objects[:]:
@@ -38,7 +37,12 @@ class ahs_convert_curve_to_edgemesh(bpy.types.Operator):
                 continue
             curve = ob.data
 
-            splines = [s for s in curve.splines if s.type == 'NURBS' and 2 <= len(s.points)]
+            splines = [
+                s
+                for s in curve.splines
+                if s.type == 'NURBS' and len(s.points) >= 2
+            ]
+
             if not len(splines):
                 continue
 
@@ -53,7 +57,7 @@ class ahs_convert_curve_to_edgemesh(bpy.types.Operator):
             # 頂点/辺情報を格納
             for spline in splines:
                 for index, point in enumerate(spline.points):
-                    if 1 <= index:
+                    if index >= 1:
                         new_edges.append((len(new_verts) - 1, len(new_verts)))
                     new_verts.append(_common.mul(ob.matrix_world, mathutils.Vector(point.co[:3])))
 

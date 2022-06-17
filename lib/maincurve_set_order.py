@@ -44,6 +44,6 @@ class ahs_maincurve_set_order(bpy.types.Operator):
             for spline in ob.data.splines:
                 if self.mode == 'ABSOLUTE':
                     spline.order_u = self.value
-                if self.mode == 'RELATIVE':
+                elif self.mode == 'RELATIVE':
                     spline.order_u += self.value
         return {'FINISHED'}

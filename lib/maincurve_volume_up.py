@@ -54,23 +54,39 @@ class ahs_maincurve_volume_up(bpy.types.Operator):
             curve = ob.data
 
             # すでにテーパーかベベルがあって参照が1つの場合は削除
-            if curve.taper_object:
-                if len([c.taper_object for c in context.blend_data.curves if c.taper_object == curve.taper_object]) == 1:
-                    c = curve.taper_object
-                    if c:
-                        context.blend_data.curves.remove(c, do_unlink=True)
-            if curve.bevel_object:
-                if len([c.bevel_object for c in context.blend_data.curves if c.bevel_object == curve.bevel_object]) == 1:
-                    c = curve.bevel_object
-                    if c:
-                        context.blend_data.curves.remove(c, do_unlink=True)
+            if (
+                curve.taper_object
+                and len(
+                    [
+                        c.taper_object
+                        for c in context.blend_data.curves
+                        if c.taper_object == curve.taper_object
+                    ]
+                )
+                == 1
+            ):
+                if c := curve.taper_object:
+                    context.blend_data.curves.remove(c, do_unlink=True)
+            if (
+                curve.bevel_object
+                and len(
+                    [
+                        c.bevel_object
+                        for c in context.blend_data.curves
+                        if c.bevel_object == curve.bevel_object
+                    ]
+                )
+                == 1
+            ):
+                if c := curve.bevel_object:
+                    context.blend_data.curves.remove(c, do_unlink=True)
 
             # テーパーオブジェクトをアペンドして割り当て
             with context.blend_data.libraries.load(blend_path) as (data_from, data_to):
-                data_to.objects = ["Taper." + self.taper_type]
+                data_to.objects = [f"Taper.{self.taper_type}"]
             taper_curve_ob = data_to.objects[0]
             taper_curve = taper_curve_ob.data
-            name = ob.name + ":Taper"
+            name = f"{ob.name}:Taper"
             taper_curve_ob.name, taper_curve.name = name, name
             _common.link_to_scene(taper_curve_ob)
             _common.select(taper_curve_ob, False)
@@ -78,10 +94,10 @@ class ahs_maincurve_volume_up(bpy.types.Operator):
 
             # ベベルオブジェクトをアペンドして割り当て
             with context.blend_data.libraries.load(blend_path) as (data_from, data_to):
-                data_to.objects = ["Bevel." + self.bevel_type]
+                data_to.objects = [f"Bevel.{self.bevel_type}"]
             bevel_curve_ob = data_to.objects[0]
             bevel_curve = bevel_curve_ob.data
-            name = ob.name + ":Bevel"
+            name = f"{ob.name}:Bevel"
             bevel_curve_ob.name, bevel_curve.name = name, name
             _common.link_to_scene(bevel_curve_ob)
             _common.select(bevel_curve_ob, False)

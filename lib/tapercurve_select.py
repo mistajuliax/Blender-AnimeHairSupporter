@@ -30,17 +30,17 @@ class ahs_tapercurve_select(bpy.types.Operator):
         return True
 
     def execute(self, context):
-        if self.mode == 'TAPER':
-            taper_or_bevel_objects = [c.taper_object for c in context.blend_data.curves if c.taper_object]
-        elif self.mode == 'BEVEL':
+        if self.mode == 'BEVEL':
             taper_or_bevel_objects = [c.bevel_object for c in context.blend_data.curves if c.bevel_object]
+        elif self.mode == 'TAPER':
+            taper_or_bevel_objects = [c.taper_object for c in context.blend_data.curves if c.taper_object]
         else:
             taper_or_bevel_objects = [c.taper_object for c in context.blend_data.curves if c.taper_object] + [c.bevel_object for c in context.blend_data.curves if c.bevel_object]
 
-        target_objects = []
-        for ob in context.visible_objects:
-            if ob in taper_or_bevel_objects:
-                target_objects.append(ob)
+        target_objects = [
+            ob for ob in context.visible_objects if ob in taper_or_bevel_objects
+        ]
+
         if not len(target_objects):
             return {'FINISHED'}
 

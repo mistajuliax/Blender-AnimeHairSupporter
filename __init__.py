@@ -45,14 +45,13 @@ module_names = [
 ]
 namespace = {}
 for name in module_names:
-    fullname = '{}.{}.{}'.format(__package__, "lib", name)
+    fullname = f'{__package__}.lib.{name}'
     if fullname in sys.modules:
         namespace[name] = importlib.reload(sys.modules[fullname])
     else:
         namespace[name] = importlib.import_module(fullname)
 
 
-# パネルの設定
 class AHS_Props(bpy.types.PropertyGroup):
     maincurve_expand = bpy.props.BoolProperty(name="Expand main panel", default=True)
     tapercurve_expand = bpy.props.BoolProperty(name="Expand tapered panel", default=True)
@@ -61,8 +60,15 @@ class AHS_Props(bpy.types.PropertyGroup):
 # モジュールからクラスの取得
 classes = [AHS_Props]
 for module in module_names:
-    for module_class in [obj for name, obj in inspect.getmembers(namespace[module]) if inspect.isclass(obj)]:
-        classes.append(module_class)
+    classes.extend(
+        iter(
+            [
+                obj
+                for name, obj in inspect.getmembers(namespace[module])
+                if inspect.isclass(obj)
+            ]
+        )
+    )
 
 
 # プラグインをインストールしたときの処理

@@ -113,7 +113,7 @@ class OBJECT_OP_ahs_convert_curve_to_armature(bpy.types.Operator):
             for point_index, point in enumerate(local_bone_points):
                 if point_index == 0:
                     continue
-                new_bone = new_arm.edit_bones.new("Hair " + str(index + 1) + "-" + str(point_index))
+                new_bone = new_arm.edit_bones.new(f"Hair {str(index + 1)}-{str(point_index)}")
                 new_bone.head = local_bone_points[point_index - 1].copy()
                 new_bone.tail = point.copy()
                 new_bone.parent = prev_bone

@@ -49,9 +49,7 @@ class ahs_convert_curve_to_mesh(bpy.types.Operator):
         # テーパー/ベベルオブジェクトを保管
         taper_and_bevel_objects = []
         for ob in target_objects:
-            taper_and_bevel_objects.append(ob.data.taper_object)
-            taper_and_bevel_objects.append(ob.data.bevel_object)
-
+            taper_and_bevel_objects.extend((ob.data.taper_object, ob.data.bevel_object))
         # 公式のカーブ > メッシュ
         bpy.ops.object.convert(target='MESH', keep_original=False)
 
